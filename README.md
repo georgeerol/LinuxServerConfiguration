@@ -1,6 +1,6 @@
 # Linux Server Configuration
 
-This project is about deploying a flask application on to AWS Light Sail. It provides the steps on creating an instance and deploy a flask application.
+This project is about deploying this [flask application](https://github.com/georgeerol/ItemCatalog) on to AWS Light Sail. It provides the steps on creating an instance and deploy a flask application.
 
 * AWS IP Address: http://18.215.148.81/
 * AWS Port: 2200
