@@ -2,7 +2,7 @@
 
 This project is about deploying a flask application on to AWS LIght Sail. It provides the steps on creating an instance and deploy a flask application.
 
-*AWS IP Address: http://18.215.148.81/
+* AWS IP Address: http://18.215.148.81/
 * AWS Port: 2200
 
 ## Get Started on Lighsail
