@@ -224,4 +224,52 @@ $ sudo pip install oauth2client requests httplib2
 ```
 
 # Install PostgreSQL
-Install PostgreSQL via this command:
+
+## Install PostgreSQL via this command:
+```sh
+$ sudo apt-get install postgresql
+```
+
+## Create the database
+To create the database type in from the terminam:
+```sh
+sudo su - postgres
+```
+Type `psql` as postgres user:
+```sh
+psql
+```
+Then do the following commands:
+```sh
+postgres=# CREATE USER catalog WITH PASSWORD 'catalog';
+postgres=# ALTER USER catalog CREATEDB;
+postgres=# CREATE DATABASE catalog WITH OWNER catalog;
+```
+Connect to the new create database:
+```sh
+\c catalog
+```
+Then do the following command:
+```sh
+catalog=# REVOKE ALL ON SCHEMA public FROM public;
+catalog=# GRANT ALL ON SCHEMA public TO catalog;
+```
+Exit postgres:
+```sh
+postgres=# \q
+postgres@PublicIP~$ exit
+```
+At last update the engine from your github `database_setup`  and any file in your project with this `engine`
+```python
+engine = create_engine('postgresql://catalog:catalog@localhost/catalog')
+```
+At last run the `database_setup`:
+```sh
+sudo python database_setup.py
+```
+
+# Change Oauth Client Login
+Update the path of the CLIENT_ID with the line below:
+```python
+CLIENT_ID = json.loads(open('/var/www/catalog/catalog/client_secrets.json', 'r').read())['web']['client_id']
+```
